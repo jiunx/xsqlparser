@@ -34,9 +34,14 @@ go get github.com/jiunx/xsqlparser
 ```
     sql := "select id,name,address from t"
     parserFactory := parser.GetParserFactoryInstance()
-    statement, err := parserFactory.Parse(context.Background(), util.Mysql, sql)
+    mysqlParser, err := parserFactory.GetParser(util.Mysql)
     if err != nil {
         fmt.Println(err)
+        return
+    }
+    statement, err2 := mysqlParser.Parse(context.Background(), sql)
+    if err2 != nil {
+        fmt.Println(err2)
     }
     fmt.Printf("%+v\n", statement)
 ```
