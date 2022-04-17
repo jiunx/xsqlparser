@@ -1,0 +1,45 @@
+package listener
+
+import (
+	parser "github.com/2212442929/sqlparser/dialect/postgre/gen"
+	"github.com/2212442929/sqlparser/model"
+	"github.com/2212442929/sqlparser/util"
+)
+
+var PostgreInstance = NewPostgreListener()
+
+type PostgreListener struct {
+	*parser.BasePostgreSQLStatementListener
+	Stmt model.Statement
+}
+
+func NewPostgreListener() *PostgreListener {
+	return &PostgreListener{}
+}
+
+func (l *PostgreListener) EnterExecute(ctx *parser.ExecuteContext) {
+	stmt := model.Statement{}
+	sqlType := ctx.GetStart().GetText()
+	stmt.Ast = ctx
+	stmt.Language = util.PostGre
+	stmt.SqlType = sqlType
+	l.Stmt = stmt
+}
+
+func (l *PostgreListener) EnterTargetEl(ctx *parser.TargetElContext) {
+	if ctx != nil {
+		l.Stmt.Results = append(l.Stmt.Results, ctx.GetText())
+	}
+}
+
+func (l *PostgreListener) EnterColumnName(ctx *parser.ColumnNameContext) {
+	if ctx != nil {
+		l.Stmt.Columns = append(l.Stmt.Columns, ctx.GetStop().GetText())
+	}
+}
+
+func (l *PostgreListener) EnterQualifiedName(ctx *parser.QualifiedNameContext) {
+	if ctx != nil {
+		l.Stmt.Tables = append(l.Stmt.Tables, ctx.GetStop().GetText())
+	}
+}
