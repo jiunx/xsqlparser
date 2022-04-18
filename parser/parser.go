@@ -15,9 +15,7 @@ func init() {
 	parserFactoryInstance.Register(util.Mysql, &mysqlParser{})
 	parserFactoryInstance.Register(util.Oracle, &oracleParser{})
 	parserFactoryInstance.Register(util.SqlServer, &sqlserverParser{})
-	//parserFactoryInstance.Register(Opens, &OpensParser{})
-	//parserFactoryInstance.Register(sql92, &Sql92Parser{})
-	//parserFactoryInstance.Register(Postgre, &PostgreParser{})
+	parserFactoryInstance.Register(util.Sql92, &sql92Parser{})
 }
 
 type parser interface {

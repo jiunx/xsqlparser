@@ -4,7 +4,5 @@ const (
 	Mysql     = "mysql"
 	Oracle    = "oracle"
 	SqlServer = "sqlserver"
-	Opens     = "opens"
-	sql92     = "sql92"
-	PostGre   = "postGre"
+	Sql92     = "sql92"
 )

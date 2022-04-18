@@ -70,9 +70,6 @@ jiunx,  I am the author of this project.
 [antlr](https://github.com/antlr/antlr4),  mainly rely on technology
 
 [shardingsphere](https://github.com/apache/shardingsphere),the grammer file of antlr is obtained from here
-## Versioning
-
-For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 

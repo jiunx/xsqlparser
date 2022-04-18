@@ -71,9 +71,6 @@ jiunx（作者）.
 [antlr](https://github.com/antlr/antlr4),  主要依赖的技术
 
 [shardingsphere](https://github.com/apache/shardingsphere),从这里获取的antlr语法文件
-## Versioning
-
-For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
