@@ -1,6 +1,6 @@
 # xSqlParser
 
-解析SQL语句，支持mysql、oracle、sqlserver...
+解析SQL语句，支持mysql、oracle、sqlserver,sql92
 
 一名golang新手的第一个开源项目，欢迎star, fork, 有什么需求、意见和建议尽管在issue里提,
 我还可以通过antlr的TokenStreamRewrite来对sql的特定节点进行逻辑修改,项目内暂时还没有添加这项功能,如果需要的话我可以加上。

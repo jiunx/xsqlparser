@@ -1,6 +1,6 @@
 # xSqlParser
 
-Parse SQL statements, support mysql, oracle, sqlserver...
+Parse SQL statements, support mysql, oracle, sqlserver,sql92
 
 The first open source project of a golang novice, welcome to star, fork, if you have any needs, comments and suggestions, please mention them in the issue, I can also use antlr's TokenStreamRewrite to make logical changes to specific nodes of sql, and the project is still temporarily This feature was not added, I can add it if needed.
 
