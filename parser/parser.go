@@ -3,6 +3,7 @@ package parser
 import (
 	"context"
 	"errors"
+
 	"github.com/jiunx/xsqlparser/model"
 	"github.com/jiunx/xsqlparser/util"
 )
@@ -12,6 +13,7 @@ var (
 )
 
 func init() {
+	parserFactoryInstance.Register(util.Sqlite, &sqliteParser{})
 	parserFactoryInstance.Register(util.Mysql, &mysqlParser{})
 	parserFactoryInstance.Register(util.Oracle, &oracleParser{})
 	parserFactoryInstance.Register(util.SqlServer, &sqlserverParser{})

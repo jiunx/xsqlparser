@@ -8,7 +8,9 @@ import (
 )
 
 func TestSqliteParse(t *testing.T) {
-	sql := "select id,name,address from t"
+	sql := "CREATE TABLE `config` (`id` integer PRIMARY KEY AUTOINCREMENT,`title` text,`field` text,`value` text)"
+	// sql := "select id,name,address from t"
+	// sql := "CREATE TABLE test_table (id INTEGER PRIMARY KEY, value TEXT);"
 	parserFactory := GetParserFactoryInstance()
 	statement, err := parserFactory.Parse(context.Background(), util.Sqlite, sql)
 	if err != nil {
