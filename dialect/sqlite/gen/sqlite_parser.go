@@ -1619,6 +1619,16 @@ func (s *ParseContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *ParseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitParse(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Parse() (localctx IParseContext) {
 	localctx = NewParseContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 0, SQLiteParserRULE_parse)
@@ -1782,6 +1792,16 @@ func (s *Sql_stmt_listContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Sql_stmt_listContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitSql_stmt_list(s)
+	}
+}
+
+func (s *Sql_stmt_listContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSql_stmt_list(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -2405,6 +2425,16 @@ func (s *Sql_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Sql_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSql_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Sql_stmt() (localctx ISql_stmtContext) {
 	localctx = NewSql_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 4, SQLiteParserRULE_sql_stmt)
@@ -2881,6 +2911,16 @@ func (s *Alter_table_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Alter_table_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitAlter_table_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Alter_table_stmt() (localctx IAlter_table_stmtContext) {
 	localctx = NewAlter_table_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 6, SQLiteParserRULE_alter_table_stmt)
@@ -3196,6 +3236,16 @@ func (s *Analyze_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Analyze_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitAnalyze_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Analyze_stmt() (localctx IAnalyze_stmtContext) {
 	localctx = NewAnalyze_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 8, SQLiteParserRULE_analyze_stmt)
@@ -3376,6 +3426,16 @@ func (s *Attach_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Attach_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitAttach_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Attach_stmt() (localctx IAttach_stmtContext) {
 	localctx = NewAttach_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 10, SQLiteParserRULE_attach_stmt)
@@ -3541,6 +3601,16 @@ func (s *Begin_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Begin_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitBegin_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Begin_stmt() (localctx IBegin_stmtContext) {
 	localctx = NewBegin_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 12, SQLiteParserRULE_begin_stmt)
@@ -3700,6 +3770,16 @@ func (s *Commit_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Commit_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCommit_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Commit_stmt() (localctx ICommit_stmtContext) {
 	localctx = NewCommit_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 14, SQLiteParserRULE_commit_stmt)
@@ -3848,6 +3928,16 @@ func (s *Rollback_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Rollback_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitRollback_stmt(s)
+	}
+}
+
+func (s *Rollback_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitRollback_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -4022,6 +4112,16 @@ func (s *Savepoint_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Savepoint_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSavepoint_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Savepoint_stmt() (localctx ISavepoint_stmtContext) {
 	localctx = NewSavepoint_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 18, SQLiteParserRULE_savepoint_stmt)
@@ -4141,6 +4241,16 @@ func (s *Release_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Release_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitRelease_stmt(s)
+	}
+}
+
+func (s *Release_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitRelease_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -4428,6 +4538,16 @@ func (s *Create_index_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Create_index_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitCreate_index_stmt(s)
+	}
+}
+
+func (s *Create_index_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCreate_index_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -4758,6 +4878,16 @@ func (s *Indexed_columnContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Indexed_columnContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitIndexed_column(s)
+	}
+}
+
+func (s *Indexed_columnContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitIndexed_column(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -5124,6 +5254,16 @@ func (s *Create_table_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Create_table_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitCreate_table_stmt(s)
+	}
+}
+
+func (s *Create_table_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCreate_table_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -5523,6 +5663,16 @@ func (s *Column_defContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Column_defContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitColumn_def(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Column_def() (localctx IColumn_defContext) {
 	localctx = NewColumn_defContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 28, SQLiteParserRULE_column_def)
@@ -5742,6 +5892,16 @@ func (s *Type_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Type_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitType_name(s)
+	}
+}
+
+func (s *Type_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitType_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -6138,6 +6298,16 @@ func (s *Column_constraintContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Column_constraintContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitColumn_constraint(s)
+	}
+}
+
+func (s *Column_constraintContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitColumn_constraint(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -6584,6 +6754,16 @@ func (s *Signed_numberContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Signed_numberContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSigned_number(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Signed_number() (localctx ISigned_numberContext) {
 	localctx = NewSigned_numberContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 34, SQLiteParserRULE_signed_number)
@@ -6899,6 +7079,16 @@ func (s *Table_constraintContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Table_constraintContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitTable_constraint(s)
+	}
+}
+
+func (s *Table_constraintContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitTable_constraint(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -7486,6 +7676,16 @@ func (s *Foreign_key_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Foreign_key_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitForeign_key_clause(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Foreign_key_clause() (localctx IForeign_key_clauseContext) {
 	localctx = NewForeign_key_clauseContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 38, SQLiteParserRULE_foreign_key_clause)
@@ -7868,6 +8068,16 @@ func (s *Conflict_clauseContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Conflict_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitConflict_clause(s)
+	}
+}
+
+func (s *Conflict_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitConflict_clause(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -8398,6 +8608,16 @@ func (s *Create_trigger_stmtContext) EnterRule(listener antlr.ParseTreeListener)
 func (s *Create_trigger_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitCreate_trigger_stmt(s)
+	}
+}
+
+func (s *Create_trigger_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCreate_trigger_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -9019,6 +9239,16 @@ func (s *Create_view_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Create_view_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCreate_view_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Create_view_stmt() (localctx ICreate_view_stmtContext) {
 	localctx = NewCreate_view_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 44, SQLiteParserRULE_create_view_stmt)
@@ -9421,6 +9651,16 @@ func (s *Create_virtual_table_stmtContext) ExitRule(listener antlr.ParseTreeList
 	}
 }
 
+func (s *Create_virtual_table_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCreate_virtual_table_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Create_virtual_table_stmt() (localctx ICreate_virtual_table_stmtContext) {
 	localctx = NewCreate_virtual_table_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 46, SQLiteParserRULE_create_virtual_table_stmt)
@@ -9792,6 +10032,16 @@ func (s *With_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *With_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitWith_clause(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) With_clause() (localctx IWith_clauseContext) {
 	localctx = NewWith_clauseContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 48, SQLiteParserRULE_with_clause)
@@ -10069,6 +10319,16 @@ func (s *Cte_table_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Cte_table_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCte_table_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Cte_table_name() (localctx ICte_table_nameContext) {
 	localctx = NewCte_table_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 50, SQLiteParserRULE_cte_table_name)
@@ -10289,6 +10549,16 @@ func (s *Recursive_cteContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Recursive_cteContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitRecursive_cte(s)
+	}
+}
+
+func (s *Recursive_cteContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitRecursive_cte(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -10551,6 +10821,16 @@ func (s *Common_table_expressionContext) ExitRule(listener antlr.ParseTreeListen
 	}
 }
 
+func (s *Common_table_expressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCommon_table_expression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Common_table_expression() (localctx ICommon_table_expressionContext) {
 	localctx = NewCommon_table_expressionContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 54, SQLiteParserRULE_common_table_expression)
@@ -10806,6 +11086,16 @@ func (s *Delete_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Delete_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitDelete_stmt(s)
+	}
+}
+
+func (s *Delete_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitDelete_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -11081,6 +11371,16 @@ func (s *Delete_stmt_limitedContext) ExitRule(listener antlr.ParseTreeListener) 
 	}
 }
 
+func (s *Delete_stmt_limitedContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitDelete_stmt_limited(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Delete_stmt_limited() (localctx IDelete_stmt_limitedContext) {
 	localctx = NewDelete_stmt_limitedContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 58, SQLiteParserRULE_delete_stmt_limited)
@@ -11291,6 +11591,16 @@ func (s *Detach_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Detach_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitDetach_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Detach_stmt() (localctx IDetach_stmtContext) {
 	localctx = NewDetach_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 60, SQLiteParserRULE_detach_stmt)
@@ -11484,6 +11794,16 @@ func (s *Drop_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Drop_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitDrop_stmt(s)
+	}
+}
+
+func (s *Drop_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitDrop_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -12167,6 +12487,16 @@ func (s *ExprContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ExprContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitExpr(s)
+	}
+}
+
+func (s *ExprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitExpr(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -13616,6 +13946,16 @@ func (s *Raise_functionContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Raise_functionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitRaise_function(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Raise_function() (localctx IRaise_functionContext) {
 	localctx = NewRaise_functionContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 66, SQLiteParserRULE_raise_function)
@@ -13816,6 +14156,16 @@ func (s *Literal_valueContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Literal_valueContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitLiteral_value(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Literal_value() (localctx ILiteral_valueContext) {
 	localctx = NewLiteral_valueContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 68, SQLiteParserRULE_literal_value)
@@ -13972,6 +14322,16 @@ func (s *Value_rowContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Value_rowContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitValue_row(s)
+	}
+}
+
+func (s *Value_rowContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitValue_row(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -14163,6 +14523,16 @@ func (s *Values_clauseContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Values_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitValues_clause(s)
+	}
+}
+
+func (s *Values_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitValues_clause(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -14547,6 +14917,16 @@ func (s *Insert_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Insert_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitInsert_stmt(s)
+	}
+}
+
+func (s *Insert_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitInsert_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -14959,6 +15339,16 @@ func (s *Returning_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Returning_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitReturning_clause(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Returning_clause() (localctx IReturning_clauseContext) {
 	localctx = NewReturning_clauseContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 76, SQLiteParserRULE_returning_clause)
@@ -15323,6 +15713,16 @@ func (s *Upsert_clauseContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Upsert_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitUpsert_clause(s)
+	}
+}
+
+func (s *Upsert_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitUpsert_clause(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -15745,6 +16145,16 @@ func (s *Pragma_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Pragma_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitPragma_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Pragma_stmt() (localctx IPragma_stmtContext) {
 	localctx = NewPragma_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 80, SQLiteParserRULE_pragma_stmt)
@@ -15945,6 +16355,16 @@ func (s *Pragma_valueContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Pragma_valueContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitPragma_value(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Pragma_value() (localctx IPragma_valueContext) {
 	localctx = NewPragma_valueContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 82, SQLiteParserRULE_pragma_value)
@@ -16137,6 +16557,16 @@ func (s *Reindex_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Reindex_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitReindex_stmt(s)
+	}
+}
+
+func (s *Reindex_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitReindex_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -16423,6 +16853,16 @@ func (s *Select_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Select_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitSelect_stmt(s)
+	}
+}
+
+func (s *Select_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSelect_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -16716,6 +17156,16 @@ func (s *Join_clauseContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Join_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitJoin_clause(s)
+	}
+}
+
+func (s *Join_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitJoin_clause(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -17202,6 +17652,16 @@ func (s *Select_coreContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Select_coreContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSelect_core(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Select_core() (localctx ISelect_coreContext) {
 	localctx = NewSelect_coreContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 90, SQLiteParserRULE_select_core)
@@ -17641,6 +18101,16 @@ func (s *Factored_select_stmtContext) ExitRule(listener antlr.ParseTreeListener)
 	}
 }
 
+func (s *Factored_select_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFactored_select_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Factored_select_stmt() (localctx IFactored_select_stmtContext) {
 	localctx = NewFactored_select_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 92, SQLiteParserRULE_factored_select_stmt)
@@ -17793,6 +18263,16 @@ func (s *Simple_select_stmtContext) EnterRule(listener antlr.ParseTreeListener) 
 func (s *Simple_select_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitSimple_select_stmt(s)
+	}
+}
+
+func (s *Simple_select_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSimple_select_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -18058,6 +18538,16 @@ func (s *Compound_select_stmtContext) EnterRule(listener antlr.ParseTreeListener
 func (s *Compound_select_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitCompound_select_stmt(s)
+	}
+}
+
+func (s *Compound_select_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCompound_select_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -18518,6 +19008,16 @@ func (s *Table_or_subqueryContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Table_or_subqueryContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitTable_or_subquery(s)
+	}
+}
+
+func (s *Table_or_subqueryContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitTable_or_subquery(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -19009,6 +19509,16 @@ func (s *Result_columnContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Result_columnContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitResult_column(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Result_column() (localctx IResult_columnContext) {
 	localctx = NewResult_columnContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 100, SQLiteParserRULE_result_column)
@@ -19218,6 +19728,16 @@ func (s *Join_operatorContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Join_operatorContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitJoin_operator(s)
+	}
+}
+
+func (s *Join_operatorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitJoin_operator(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -19507,6 +20027,16 @@ func (s *Join_constraintContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Join_constraintContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitJoin_constraint(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Join_constraint() (localctx IJoin_constraintContext) {
 	localctx = NewJoin_constraintContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 104, SQLiteParserRULE_join_constraint)
@@ -19693,6 +20223,16 @@ func (s *Compound_operatorContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Compound_operatorContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitCompound_operator(s)
+	}
+}
+
+func (s *Compound_operatorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCompound_operator(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -20152,6 +20692,16 @@ func (s *Update_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Update_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitUpdate_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Update_stmt() (localctx IUpdate_stmtContext) {
 	localctx = NewUpdate_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 108, SQLiteParserRULE_update_stmt)
@@ -20554,6 +21104,16 @@ func (s *Column_name_listContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Column_name_listContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitColumn_name_list(s)
+	}
+}
+
+func (s *Column_name_listContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitColumn_name_list(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -20969,6 +21529,16 @@ func (s *Update_stmt_limitedContext) ExitRule(listener antlr.ParseTreeListener) 
 	}
 }
 
+func (s *Update_stmt_limitedContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitUpdate_stmt_limited(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Update_stmt_limited() (localctx IUpdate_stmt_limitedContext) {
 	localctx = NewUpdate_stmt_limitedContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 112, SQLiteParserRULE_update_stmt_limited)
@@ -21364,6 +21934,16 @@ func (s *Qualified_table_nameContext) ExitRule(listener antlr.ParseTreeListener)
 	}
 }
 
+func (s *Qualified_table_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitQualified_table_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Qualified_table_name() (localctx IQualified_table_nameContext) {
 	localctx = NewQualified_table_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 114, SQLiteParserRULE_qualified_table_name)
@@ -21589,6 +22169,16 @@ func (s *Vacuum_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Vacuum_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitVacuum_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Vacuum_stmt() (localctx IVacuum_stmtContext) {
 	localctx = NewVacuum_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 116, SQLiteParserRULE_vacuum_stmt)
@@ -21750,6 +22340,16 @@ func (s *Filter_clauseContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Filter_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitFilter_clause(s)
+	}
+}
+
+func (s *Filter_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFilter_clause(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -22029,6 +22629,16 @@ func (s *Window_defnContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Window_defnContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitWindow_defn(s)
+	}
+}
+
+func (s *Window_defnContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitWindow_defn(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -22449,6 +23059,16 @@ func (s *Over_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Over_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitOver_clause(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Over_clause() (localctx IOver_clauseContext) {
 	localctx = NewOver_clauseContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 122, SQLiteParserRULE_over_clause)
@@ -22770,6 +23390,16 @@ func (s *Frame_specContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Frame_specContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFrame_spec(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Frame_spec() (localctx IFrame_specContext) {
 	localctx = NewFrame_specContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 124, SQLiteParserRULE_frame_spec)
@@ -23020,6 +23650,16 @@ func (s *Frame_clauseContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Frame_clauseContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFrame_clause(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Frame_clause() (localctx IFrame_clauseContext) {
 	localctx = NewFrame_clauseContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 126, SQLiteParserRULE_frame_clause)
@@ -23240,6 +23880,16 @@ func (s *Simple_function_invocationContext) EnterRule(listener antlr.ParseTreeLi
 func (s *Simple_function_invocationContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitSimple_function_invocation(s)
+	}
+}
+
+func (s *Simple_function_invocationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSimple_function_invocation(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -23507,6 +24157,16 @@ func (s *Aggregate_function_invocationContext) EnterRule(listener antlr.ParseTre
 func (s *Aggregate_function_invocationContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitAggregate_function_invocation(s)
+	}
+}
+
+func (s *Aggregate_function_invocationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitAggregate_function_invocation(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -23840,6 +24500,16 @@ func (s *Window_function_invocationContext) ExitRule(listener antlr.ParseTreeLis
 	}
 }
 
+func (s *Window_function_invocationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitWindow_function_invocation(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Window_function_invocation() (localctx IWindow_function_invocationContext) {
 	localctx = NewWindow_function_invocationContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 132, SQLiteParserRULE_window_function_invocation)
@@ -24106,6 +24776,16 @@ func (s *Common_table_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Common_table_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCommon_table_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Common_table_stmt() (localctx ICommon_table_stmtContext) {
 	localctx = NewCommon_table_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 134, SQLiteParserRULE_common_table_stmt)
@@ -24310,6 +24990,16 @@ func (s *Order_by_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Order_by_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitOrder_by_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Order_by_stmt() (localctx IOrder_by_stmtContext) {
 	localctx = NewOrder_by_stmtContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 136, SQLiteParserRULE_order_by_stmt)
@@ -24498,6 +25188,16 @@ func (s *Limit_stmtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Limit_stmtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitLimit_stmt(s)
+	}
+}
+
+func (s *Limit_stmtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitLimit_stmt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -24694,6 +25394,16 @@ func (s *Ordering_termContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Ordering_termContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitOrdering_term(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Ordering_term() (localctx IOrdering_termContext) {
 	localctx = NewOrdering_termContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 140, SQLiteParserRULE_ordering_term)
@@ -24858,6 +25568,16 @@ func (s *Asc_descContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Asc_descContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitAsc_desc(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Asc_desc() (localctx IAsc_descContext) {
 	localctx = NewAsc_descContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 142, SQLiteParserRULE_asc_desc)
@@ -24993,6 +25713,16 @@ func (s *Frame_leftContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Frame_leftContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitFrame_left(s)
+	}
+}
+
+func (s *Frame_leftContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFrame_left(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -25198,6 +25928,16 @@ func (s *Frame_rightContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Frame_rightContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFrame_right(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Frame_right() (localctx IFrame_rightContext) {
 	localctx = NewFrame_rightContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 146, SQLiteParserRULE_frame_right)
@@ -25392,6 +26132,16 @@ func (s *Frame_singleContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Frame_singleContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitFrame_single(s)
+	}
+}
+
+func (s *Frame_singleContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFrame_single(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -25758,6 +26508,16 @@ func (s *Window_functionContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Window_functionContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitWindow_function(s)
+	}
+}
+
+func (s *Window_functionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitWindow_function(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -26396,6 +27156,16 @@ func (s *OffsetContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *OffsetContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitOffset(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Offset() (localctx IOffsetContext) {
 	localctx = NewOffsetContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 152, SQLiteParserRULE_offset)
@@ -26510,6 +27280,16 @@ func (s *Default_valueContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Default_valueContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitDefault_value(s)
+	}
+}
+
+func (s *Default_valueContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitDefault_value(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -26658,6 +27438,16 @@ func (s *Partition_byContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Partition_byContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitPartition_by(s)
+	}
+}
+
+func (s *Partition_byContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitPartition_by(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -26841,6 +27631,16 @@ func (s *Order_by_exprContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Order_by_exprContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitOrder_by_expr(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Order_by_expr() (localctx IOrder_by_exprContext) {
 	localctx = NewOrder_by_exprContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 158, SQLiteParserRULE_order_by_expr)
@@ -26986,6 +27786,16 @@ func (s *Order_by_expr_asc_descContext) EnterRule(listener antlr.ParseTreeListen
 func (s *Order_by_expr_asc_descContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitOrder_by_expr_asc_desc(s)
+	}
+}
+
+func (s *Order_by_expr_asc_descContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitOrder_by_expr_asc_desc(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -27188,6 +27998,16 @@ func (s *Expr_asc_descContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Expr_asc_descContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitExpr_asc_desc(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Expr_asc_desc() (localctx IExpr_asc_descContext) {
 	localctx = NewExpr_asc_descContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 162, SQLiteParserRULE_expr_asc_desc)
@@ -27350,6 +28170,16 @@ func (s *Initial_selectContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Initial_selectContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitInitial_select(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Initial_select() (localctx IInitial_selectContext) {
 	localctx = NewInitial_selectContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 164, SQLiteParserRULE_initial_select)
@@ -27451,6 +28281,16 @@ func (s *Recursive_selectContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Recursive_selectContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitRecursive_select(s)
+	}
+}
+
+func (s *Recursive_selectContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitRecursive_select(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -27561,6 +28401,16 @@ func (s *Unary_operatorContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Unary_operatorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitUnary_operator(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Unary_operator() (localctx IUnary_operatorContext) {
 	localctx = NewUnary_operatorContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 168, SQLiteParserRULE_unary_operator)
@@ -27659,6 +28509,16 @@ func (s *Error_messageContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Error_messageContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitError_message(s)
+	}
+}
+
+func (s *Error_messageContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitError_message(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -27787,6 +28647,16 @@ func (s *Module_argumentContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Module_argumentContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitModule_argument(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Module_argument() (localctx IModule_argumentContext) {
 	localctx = NewModule_argumentContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 172, SQLiteParserRULE_module_argument)
@@ -27900,6 +28770,16 @@ func (s *Column_aliasContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Column_aliasContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitColumn_alias(s)
+	}
+}
+
+func (s *Column_aliasContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitColumn_alias(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -28774,6 +29654,16 @@ func (s *KeywordContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *KeywordContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitKeyword(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Keyword() (localctx IKeywordContext) {
 	localctx = NewKeywordContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 176, SQLiteParserRULE_keyword)
@@ -28887,6 +29777,16 @@ func (s *NameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *NameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitName(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Name() (localctx INameContext) {
 	localctx = NewNameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 178, SQLiteParserRULE_name)
@@ -28988,6 +29888,16 @@ func (s *Function_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Function_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitFunction_name(s)
+	}
+}
+
+func (s *Function_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFunction_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -29095,6 +30005,16 @@ func (s *Schema_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Schema_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSchema_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Schema_name() (localctx ISchema_nameContext) {
 	localctx = NewSchema_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 182, SQLiteParserRULE_schema_name)
@@ -29196,6 +30116,16 @@ func (s *Table_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Table_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitTable_name(s)
+	}
+}
+
+func (s *Table_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitTable_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -29303,6 +30233,16 @@ func (s *Table_or_index_nameContext) ExitRule(listener antlr.ParseTreeListener) 
 	}
 }
 
+func (s *Table_or_index_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitTable_or_index_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Table_or_index_name() (localctx ITable_or_index_nameContext) {
 	localctx = NewTable_or_index_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 186, SQLiteParserRULE_table_or_index_name)
@@ -29404,6 +30344,16 @@ func (s *Column_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Column_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitColumn_name(s)
+	}
+}
+
+func (s *Column_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitColumn_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -29511,6 +30461,16 @@ func (s *Collation_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Collation_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitCollation_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Collation_name() (localctx ICollation_nameContext) {
 	localctx = NewCollation_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 190, SQLiteParserRULE_collation_name)
@@ -29612,6 +30572,16 @@ func (s *Foreign_tableContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Foreign_tableContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitForeign_table(s)
+	}
+}
+
+func (s *Foreign_tableContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitForeign_table(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -29719,6 +30689,16 @@ func (s *Index_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Index_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitIndex_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Index_name() (localctx IIndex_nameContext) {
 	localctx = NewIndex_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 194, SQLiteParserRULE_index_name)
@@ -29820,6 +30800,16 @@ func (s *Trigger_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Trigger_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitTrigger_name(s)
+	}
+}
+
+func (s *Trigger_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitTrigger_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -29927,6 +30917,16 @@ func (s *View_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *View_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitView_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) View_name() (localctx IView_nameContext) {
 	localctx = NewView_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 198, SQLiteParserRULE_view_name)
@@ -30028,6 +31028,16 @@ func (s *Module_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Module_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitModule_name(s)
+	}
+}
+
+func (s *Module_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitModule_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -30135,6 +31145,16 @@ func (s *Pragma_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Pragma_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitPragma_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Pragma_name() (localctx IPragma_nameContext) {
 	localctx = NewPragma_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 202, SQLiteParserRULE_pragma_name)
@@ -30236,6 +31256,16 @@ func (s *Savepoint_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Savepoint_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitSavepoint_name(s)
+	}
+}
+
+func (s *Savepoint_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSavepoint_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -30343,6 +31373,16 @@ func (s *Table_aliasContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Table_aliasContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitTable_alias(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Table_alias() (localctx ITable_aliasContext) {
 	localctx = NewTable_aliasContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 206, SQLiteParserRULE_table_alias)
@@ -30444,6 +31484,16 @@ func (s *Transaction_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Transaction_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitTransaction_name(s)
+	}
+}
+
+func (s *Transaction_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitTransaction_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -30551,6 +31601,16 @@ func (s *Window_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Window_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitWindow_name(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Window_name() (localctx IWindow_nameContext) {
 	localctx = NewWindow_nameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 210, SQLiteParserRULE_window_name)
@@ -30652,6 +31712,16 @@ func (s *AliasContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *AliasContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitAlias(s)
+	}
+}
+
+func (s *AliasContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitAlias(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -30759,6 +31829,16 @@ func (s *FilenameContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *FilenameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitFilename(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Filename() (localctx IFilenameContext) {
 	localctx = NewFilenameContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 214, SQLiteParserRULE_filename)
@@ -30860,6 +31940,16 @@ func (s *Base_window_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Base_window_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitBase_window_name(s)
+	}
+}
+
+func (s *Base_window_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitBase_window_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -30967,6 +32057,16 @@ func (s *Simple_funcContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Simple_funcContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitSimple_func(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Simple_func() (localctx ISimple_funcContext) {
 	localctx = NewSimple_funcContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 218, SQLiteParserRULE_simple_func)
@@ -31071,6 +32171,16 @@ func (s *Aggregate_funcContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *Aggregate_funcContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitAggregate_func(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SQLiteParser) Aggregate_func() (localctx IAggregate_funcContext) {
 	localctx = NewAggregate_funcContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 220, SQLiteParserRULE_aggregate_func)
@@ -31172,6 +32282,16 @@ func (s *Table_function_nameContext) EnterRule(listener antlr.ParseTreeListener)
 func (s *Table_function_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitTable_function_name(s)
+	}
+}
+
+func (s *Table_function_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitTable_function_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -31313,6 +32433,16 @@ func (s *Any_nameContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *Any_nameContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SQLiteParserListener); ok {
 		listenerT.ExitAny_name(s)
+	}
+}
+
+func (s *Any_nameContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SQLiteParserVisitor:
+		return t.VisitAny_name(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
