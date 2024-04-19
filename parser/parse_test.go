@@ -2,9 +2,20 @@ package parser
 
 import (
 	"context"
-	"github.com/jiunx/xsqlparser/util"
 	"testing"
+
+	"github.com/jiunx/xsqlparser/util"
 )
+
+func TestSqliteParse(t *testing.T) {
+	sql := "select id,name,address from t"
+	parserFactory := GetParserFactoryInstance()
+	statement, err := parserFactory.Parse(context.Background(), util.Sqlite, sql)
+	if err != nil {
+		t.Error(err)
+	}
+	t.Logf("%+v\n", statement)
+}
 
 func TestMysqlParse(t *testing.T) {
 	sql := "select id,name,address from t"
