@@ -9,6 +9,6 @@ type Statement struct {
 	Language string     `json:"language"`
 	Tables   []string   `json:"tables"`
 	Columns  []string   `json:"columns"`
-	Results  []string   `json:"columns"`
+	Results  []string   `json:"results"`
 	Ast      antlr.Tree `json:"ast"`
 }
