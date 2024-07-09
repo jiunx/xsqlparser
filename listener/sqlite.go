@@ -26,23 +26,20 @@ func (l *SQLiteListener) EnterParse(ctx *parser.ParseContext) {
 	l.Stmt = stmt
 }
 
-// func (l *SQLiteListener) EnterProjections(ctx *parser.AliasContext) {
-// 	if ctx.UnqualifiedShorthand() != nil {
-// 		l.Stmt.Results = append(l.Stmt.Results, "*")
-// 	}
-// }
-
 func (l *SQLiteListener) EnterType_name(ctx *parser.Type_nameContext) {
 	// fmt.Println("EnterProjection", ctx.GetText())
-	l.Stmt.ColumnsDef = append(l.Stmt.ColumnsDef, ctx.GetText())
+	// tableList := model.Table{}
+	// tableList
+	l.Stmt.TableList.ColumnsType = append(l.Stmt.TableList.ColumnsType, ctx.GetText())
 }
 
 func (l *SQLiteListener) EnterColumn_def(ctx *parser.Column_defContext) {
 	if ctx != nil {
-		// fmt.Println("EnterColumnRef", ctx.GetText())
 		l.Stmt.Columns = append(l.Stmt.Columns, ctx.Column_name().Any_name().GetText())
-		// l.Stmt.ColumnsDef = append(l.Stmt.ColumnsDef, ctx.Type_name().GetText())
-		// l.Stmt.ColumnsType = append(l.Stmt.ColumnsType, ctx().Any_name().Keyword().GetText())
+
+		// tableList := model.Table{}
+		// tableList.Columns = l.Stmt.Columns
+		l.Stmt.TableList.Columns = l.Stmt.Columns
 	}
 }
 
