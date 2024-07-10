@@ -8,8 +8,8 @@ The first open source project of a golang novice, welcome to star, fork, if you 
 
 <hr>
 
-[![EN doc](https://img.shields.io/badge/document-English-blue.svg)](https://github.com/jiunx/xsqlparser/blob/master/README.md)
-[![CN doc](https://img.shields.io/badge/文档-中文版-blue.svg)](https://github.com/jiunx/xsqlparser/blob/master/README-cn.md)
+[![EN doc](https://img.shields.io/badge/document-English-blue.svg)](https://github.com/yhao521/xsqlparser/blob/master/README.md)
+[![CN doc](https://img.shields.io/badge/文档-中文版-blue.svg)](https://github.com/yhao521/xsqlparser/blob/master/README-cn.md)
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -20,7 +20,7 @@ These instructions will get you a copy of the project up and running on your loc
 Get it
 
 ```
-go get github.com/jiunx/xsqlparser
+go get github.com/yhao521/xsqlparser
 ```
 
 

@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/jiunx/xsqlparser/model"
-	"github.com/jiunx/xsqlparser/util"
+	"github.com/yhao521/xsqlparser/model"
+	"github.com/yhao521/xsqlparser/util"
 )
 
 var (

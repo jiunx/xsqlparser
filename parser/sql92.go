@@ -2,10 +2,11 @@ package parser
 
 import (
 	"context"
+
 	"github.com/antlr/antlr4/runtime/Go/antlr"
-	perseverant "github.com/jiunx/xsqlparser/dialect/sql92/gen"
-	"github.com/jiunx/xsqlparser/listener"
-	"github.com/jiunx/xsqlparser/model"
+	perseverant "github.com/yhao521/xsqlparser/dialect/sql92/gen"
+	"github.com/yhao521/xsqlparser/listener"
+	"github.com/yhao521/xsqlparser/model"
 )
 
 var (
@@ -14,7 +15,7 @@ var (
 
 type sql92Parser struct{}
 
-//Parse parses the sql and returns a Statement .
+// Parse parses the sql and returns a Statement .
 func (p *sql92Parser) Parse(ctx context.Context, sql string) (stmt *model.Statement, err error) {
 	is := antlr.NewInputStream(sql)
 	lexer := perseverant.NewSQL92StatementLexer(is)

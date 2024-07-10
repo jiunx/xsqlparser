@@ -10,8 +10,8 @@
 
 <hr>
 
-[![EN doc](https://img.shields.io/badge/document-English-blue.svg)](https://github.com/jiunx/xsqlparser/blob/master/README.md)
-[![CN doc](https://img.shields.io/badge/文档-中文版-blue.svg)](https://github.com/jiunx/xsqlparser/blob/master/README-cn.md)
+[![EN doc](https://img.shields.io/badge/document-English-blue.svg)](https://github.com/yhao521/xsqlparser/blob/master/README.md)
+[![CN doc](https://img.shields.io/badge/文档-中文版-blue.svg)](https://github.com/yhao521/xsqlparser/blob/master/README-cn.md)
 ## 快速入门
 
 
@@ -22,7 +22,7 @@
 
 
 ```
-go get github.com/jiunx/xsqlparser
+go get github.com/yhao521/xsqlparser
 ```
 
 

@@ -1,4 +1,4 @@
-// Code generated from E:/GoProject/src/github.com/jiunx/xsqlparser/dialect/sql92/grammer\SQL92Statement.g4 by ANTLR 4.9.3. DO NOT EDIT.
+// Code generated from E:/GoProject/src/github.com/yhao521/xsqlparser/dialect/sql92/grammer\SQL92Statement.g4 by ANTLR 4.9.3. DO NOT EDIT.
 
 package parser // SQL92Statement
 

@@ -1,9 +1,9 @@
 package listener
 
 import (
-	parser "github.com/jiunx/xsqlparser/dialect/sqlserver/gen"
-	"github.com/jiunx/xsqlparser/model"
-	"github.com/jiunx/xsqlparser/util"
+	parser "github.com/yhao521/xsqlparser/dialect/sqlserver/gen"
+	"github.com/yhao521/xsqlparser/model"
+	"github.com/yhao521/xsqlparser/util"
 )
 
 var SqlserverInstance = &sqlserverListener{}

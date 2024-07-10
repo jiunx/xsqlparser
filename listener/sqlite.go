@@ -3,9 +3,9 @@ package listener
 import (
 	"fmt"
 
-	parser "github.com/jiunx/xsqlparser/dialect/sqlite/gen"
-	"github.com/jiunx/xsqlparser/model"
-	"github.com/jiunx/xsqlparser/util"
+	parser "github.com/yhao521/xsqlparser/dialect/sqlite/gen"
+	"github.com/yhao521/xsqlparser/model"
+	"github.com/yhao521/xsqlparser/util"
 )
 
 var SqliteInstance = &SQLiteListener{}

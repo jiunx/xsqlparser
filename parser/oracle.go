@@ -2,10 +2,11 @@ package parser
 
 import (
 	"context"
+
 	"github.com/antlr/antlr4/runtime/Go/antlr"
-	perseverant "github.com/jiunx/xsqlparser/dialect/oracle/gen"
-	"github.com/jiunx/xsqlparser/listener"
-	"github.com/jiunx/xsqlparser/model"
+	perseverant "github.com/yhao521/xsqlparser/dialect/oracle/gen"
+	"github.com/yhao521/xsqlparser/listener"
+	"github.com/yhao521/xsqlparser/model"
 )
 
 var (

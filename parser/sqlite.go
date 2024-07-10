@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"github.com/antlr4-go/antlr/v4"
-	perseverant "github.com/jiunx/xsqlparser/dialect/sqlite/gen"
-	"github.com/jiunx/xsqlparser/listener"
-	"github.com/jiunx/xsqlparser/model"
+	perseverant "github.com/yhao521/xsqlparser/dialect/sqlite/gen"
+	"github.com/yhao521/xsqlparser/listener"
+	"github.com/yhao521/xsqlparser/model"
 )
 
 var (

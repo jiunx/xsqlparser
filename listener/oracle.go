@@ -1,9 +1,9 @@
 package listener
 
 import (
-	parser "github.com/jiunx/xsqlparser/dialect/oracle/gen"
-	"github.com/jiunx/xsqlparser/model"
-	"github.com/jiunx/xsqlparser/util"
+	parser "github.com/yhao521/xsqlparser/dialect/oracle/gen"
+	"github.com/yhao521/xsqlparser/model"
+	"github.com/yhao521/xsqlparser/util"
 )
 
 var OracleInstance = NewOracleListener()

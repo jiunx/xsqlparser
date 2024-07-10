@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/jiunx/xsqlparser/util"
+	"github.com/yhao521/xsqlparser/util"
 )
 
 func TestSqliteParse(t *testing.T) {
