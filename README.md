@@ -17,14 +17,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-Get it
-
-```
-go get github.com/jiunx/xsqlparser
-```
-
-
-
 ## Running the tests
 
 You can use the test code in parser_test.go to test that the parser parses the sql statement correctly.
